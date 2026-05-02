@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Admin</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/apple-style.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-wrapper container">
+            <a href="#" class="brand-logo">Panel Admin</a>
+            <ul class="right">
+                <li><a href="/profile">Mi cuenta</a></li>
+                <li><a href="#" onclick="logout()">Cerrar sesión</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h4>Dashboard de administrador</h4>
+
+        <div class="dashboard-card" style="margin-bottom: 30px;">
+            <span class="apple-badge">Rol admin</span>
+            <h4 style="margin-top: 20px;">Gestión de usuarios</h4>
+            <p class="grey-text text-darken-1">
+                Desde este panel puedes visualizar los usuarios registrados en el sistema.
+            </p>
+        </div>
+
+        <table class="striped responsive-table">
+            <thead>
+                <tr>
+                    <th>Usuario</th>
+                    <th>Email</th>
+                    <th>Teléfono</th>
+                    <th>Edad</th>
+                    <th>Roles</th>
+                    <th>Registro</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody id="usersTable">
+                <tr>
+                    <td colspan="7" class="center">Cargando usuarios...</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="/js/admin.js"></script>
+
+</body>
+
+</html>

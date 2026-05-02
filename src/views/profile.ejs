@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mi cuenta</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/apple-style.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-wrapper container">
+            <a href="#" class="brand-logo">Mi cuenta</a>
+            <ul class="right">
+                <li><a href="#" onclick="goDashboard()">Dashboard</a></li>
+                <li><a href="#" onclick="logout()">Cerrar sesión</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h4>Perfil del usuario</h4>
+
+        <div class="card">
+            <div class="card-content">
+
+                <div class="profile-header">
+                    <img id="profileImage" class="profile-avatar"
+                        src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Foto de perfil"
+                        onerror="this.src='https://cdn-icons-png.flaticon.com/512/3135/3135715.png'">
+
+                    <div class="profile-header-text">
+                        <span class="apple-badge">Información personal</span>
+                        <h4 id="profileName">Cargando...</h4>
+                        <p id="profileEmail" class="profile-meta">Cargando correo...</p>
+                        <p id="profileRoles" class="profile-meta"></p>
+                    </div>
+                </div>
+
+                <form id="profileForm">
+                    <div class="row">
+                        <div class="input-field col s12 m6">
+                            <input type="text" id="name" name="name" required>
+                            <label for="name">Nombre</label>
+                        </div>
+
+                        <div class="input-field col s12 m6">
+                            <input type="text" id="lastName" name="lastName" required>
+                            <label for="lastName">Apellido</label>
+                        </div>
+                    </div>
+
+                    <div class="input-field">
+                        <input type="text" id="phoneNumber" name="phoneNumber" required>
+                        <label for="phoneNumber">Teléfono</label>
+                    </div>
+
+                    <div class="input-field">
+                        <input type="text" id="url_profile" name="url_profile">
+                        <label for="url_profile">URL Perfil</label>
+                    </div>
+
+                    <div class="profile-url-preview">
+                        <img id="previewImage" src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+                            alt="Vista previa"
+                            onerror="this.src='https://cdn-icons-png.flaticon.com/512/3135/3135715.png'">
+                        <span>Vista previa de la imagen ingresada en la URL</span>
+                    </div>
+
+                    <div class="input-field">
+                        <input type="text" id="address" name="address">
+                        <label for="address">Dirección</label>
+                    </div>
+
+                    <button class="btn green" type="submit">
+                        Guardar cambios
+                    </button>
+                </form>
+
+                <p id="message" class="center"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="/js/profile.js"></script>
+
+</body>
+
+</html>

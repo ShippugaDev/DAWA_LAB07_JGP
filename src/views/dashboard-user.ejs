@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Usuario</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/apple-style.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-wrapper container">
+            <a href="#" class="brand-logo">Panel Usuario</a>
+            <ul class="right">
+                <li><a href="/profile">Mi cuenta</a></li>
+                <li><a href="#" onclick="logout()">Cerrar sesión</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h4>Dashboard de usuario</h4>
+
+        <div class="dashboard-card">
+            <span class="apple-badge">Rol user</span>
+            <h4 style="margin-top: 20px;">Bienvenido a tu espacio personal</h4>
+            <p id="welcome" class="grey-text text-darken-1">
+                Cargando datos...
+            </p>
+
+            <div style="margin-top: 25px;">
+                <a href="/profile" class="btn">Ver mi perfil</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function logout() {
+            sessionStorage.removeItem('token');
+            window.location.href = '/signIn';
+        }
+
+        async function loadUser() {
+            const token = sessionStorage.getItem('token');
+
+            if (!token) {
+                window.location.href = '/signIn';
+                return;
+            }
+
+            const response = await fetch('/api/users/me', {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+
+            if (response.status === 401) {
+                sessionStorage.removeItem('token');
+                window.location.href = '/signIn';
+                return;
+            }
+
+            const user = await response.json();
+
+            if (!user.roles.includes('user') && !user.roles.includes('admin')) {
+                window.location.href = '/403';
+                return;
+            }
+
+            document.getElementById('welcome').innerText =
+                `Hola ${user.name} ${user.lastName}, aquí puedes revisar y administrar la información de tu cuenta.`;
+        }
+
+        loadUser();
+    </script>
+
+</body>
+
+</html>

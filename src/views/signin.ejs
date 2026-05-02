@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SignIn</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/apple-style.css">
+</head>
+
+<body>
+
+    <div class="auth-wrapper">
+        <div class="auth-card">
+            <div class="card">
+                <div class="card-content">
+                    <div class="center">
+                        <span class="apple-badge">Express Mongo Auth</span>
+                        <h4>Bienvenido</h4>
+                        <p class="grey-text text-darken-1">
+                            Inicia sesión para acceder a tu cuenta.
+                        </p>
+                    </div>
+
+                    <form id="loginForm">
+                        <div class="input-field">
+                            <input type="email" id="email" required>
+                            <label for="email">Correo electrónico</label>
+                        </div>
+
+                        <div class="input-field">
+                            <input type="password" id="password" required>
+                            <label for="password">Contraseña</label>
+                        </div>
+
+                        <div class="center">
+                            <button class="btn waves-effect waves-light" type="submit">
+                                Iniciar sesión
+                            </button>
+                        </div>
+                    </form>
+
+                    <p class="center" style="margin-top: 24px;">
+                        ¿No tienes cuenta?
+                        <a href="/signUp">Crear cuenta</a>
+                    </p>
+
+                    <p id="error" class="red-text center"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/auth.js"></script>
+</body>
+
+</html>
